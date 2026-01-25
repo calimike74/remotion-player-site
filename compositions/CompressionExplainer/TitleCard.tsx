@@ -1,4 +1,5 @@
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { eduTheme } from "../shared/EducationalBackground";
 
 interface TitleCardProps {
   title: string;
@@ -59,15 +60,14 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, topic }) 
       {/* Topic badge */}
       <div
         style={{
-          backgroundColor: "#3b82f6",
+          backgroundColor: eduTheme.accent.primary,
           color: "#ffffff",
           padding: "12px 32px",
-          borderRadius: 50,
+          borderRadius: 6,
           fontSize: 28,
-          fontWeight: 700,
-          letterSpacing: 2,
+          fontWeight: 600,
+          letterSpacing: 1,
           transform: `scale(${badgeProgress})`,
-          boxShadow: "0 0 30px #3b82f688",
         }}
       >
         TOPIC {topic}
@@ -76,14 +76,13 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, topic }) 
       {/* Main title */}
       <h1
         style={{
-          fontSize: 120,
-          fontWeight: 900,
-          color: "#ffffff",
+          fontSize: 100,
+          fontWeight: 700,
+          color: eduTheme.text.primary,
           margin: 0,
           letterSpacing: -2,
           transform: `translateY(${interpolate(titleProgress, [0, 1], [50, 0])}px)`,
           opacity: titleProgress,
-          textShadow: "0 4px 40px rgba(59, 130, 246, 0.5)",
         }}
       >
         {title}
@@ -92,11 +91,10 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, topic }) 
       {/* Subtitle */}
       <p
         style={{
-          fontSize: 48,
-          fontWeight: 500,
-          color: "#94a3b8",
+          fontSize: 40,
+          fontWeight: 400,
+          color: eduTheme.text.secondary,
           margin: 0,
-          letterSpacing: 4,
           transform: `translateY(${interpolate(subtitleProgress, [0, 1], [30, 0])}px)`,
           opacity: subtitleProgress,
         }}
@@ -108,8 +106,8 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, topic }) 
       <div
         style={{
           width: lineWidth,
-          height: 4,
-          background: "linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, transparent)",
+          height: 3,
+          background: `linear-gradient(90deg, transparent, ${eduTheme.accent.primary}, ${eduTheme.accent.secondary}, transparent)`,
           borderRadius: 2,
         }}
       />

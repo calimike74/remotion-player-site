@@ -4,6 +4,7 @@ import { TitleCard } from "./TitleCard";
 import { WaveformBasics } from "./WaveformBasics";
 import { FrequencyDemo } from "./FrequencyDemo";
 import { OctaveRelationship } from "./OctaveRelationship";
+import { EducationalBackground } from "../shared/EducationalBackground";
 
 export const WaveformExplainer: React.FC = () => {
   const frame = useCurrentFrame();
@@ -19,10 +20,10 @@ export const WaveformExplainer: React.FC = () => {
   return (
     <AbsoluteFill
       style={{
-        backgroundColor: "#0a0a1a",
         fontFamily: "system-ui, -apple-system, sans-serif",
       }}
     >
+      <EducationalBackground />
       {/* ElevenLabs narration - timed to not overlap */}
       <Sequence from={0}>
         <Audio src={staticFile("waveform_01.mp3")} />

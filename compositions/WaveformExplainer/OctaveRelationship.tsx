@@ -1,4 +1,5 @@
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { eduTheme } from "../shared/EducationalBackground";
 
 export const OctaveRelationship: React.FC = () => {
   const frame = useCurrentFrame();
@@ -50,7 +51,7 @@ export const OctaveRelationship: React.FC = () => {
         style={{
           fontSize: 56,
           fontWeight: 700,
-          color: "#ffffff",
+          color: eduTheme.text.primary,
           marginBottom: 50,
           opacity: entryProgress,
         }}
@@ -85,8 +86,9 @@ export const OctaveRelationship: React.FC = () => {
                   flexDirection: "column",
                   alignItems: "center",
                   padding: "20px 30px",
-                  backgroundColor: isReference ? "#22c55e22" : "#1e293b",
-                  border: isReference ? "3px solid #22c55e" : "2px solid #334155",
+                  backgroundColor: isReference ? "#16a34a15" : eduTheme.card.background,
+                  border: isReference ? "3px solid #16a34a" : `2px solid ${eduTheme.card.border}`,
+                  boxShadow: eduTheme.card.shadow,
                   borderRadius: 16,
                   transform: `scale(${itemProgress})`,
                   opacity: itemProgress,
@@ -96,7 +98,7 @@ export const OctaveRelationship: React.FC = () => {
                   style={{
                     fontSize: 36,
                     fontWeight: 800,
-                    color: isReference ? "#22c55e" : "#ffffff",
+                    color: isReference ? "#16a34a" : eduTheme.text.primary,
                   }}
                 >
                   {oct.note}
@@ -105,7 +107,7 @@ export const OctaveRelationship: React.FC = () => {
                   style={{
                     fontSize: 28,
                     fontWeight: 600,
-                    color: isReference ? "#22c55e" : "#94a3b8",
+                    color: isReference ? "#16a34a" : eduTheme.text.secondary,
                     marginTop: 8,
                   }}
                 >
@@ -153,18 +155,19 @@ export const OctaveRelationship: React.FC = () => {
         <div
           style={{
             padding: "25px 40px",
-            backgroundColor: "#3b82f622",
-            border: "2px solid #3b82f6",
+            backgroundColor: eduTheme.card.background,
+            border: `2px solid ${eduTheme.accent.primary}`,
+            boxShadow: eduTheme.card.shadow,
             borderRadius: 16,
           }}
         >
-          <div style={{ color: "#3b82f6", fontSize: 24, fontWeight: 600, marginBottom: 10 }}>
+          <div style={{ color: eduTheme.accent.primary, fontSize: 24, fontWeight: 600, marginBottom: 10 }}>
             Octave UP
           </div>
-          <div style={{ color: "#ffffff", fontSize: 32, fontWeight: 700 }}>
+          <div style={{ color: eduTheme.text.primary, fontSize: 32, fontWeight: 700 }}>
             f × 2
           </div>
-          <div style={{ color: "#94a3b8", fontSize: 20, marginTop: 8 }}>
+          <div style={{ color: eduTheme.text.secondary, fontSize: 20, marginTop: 8 }}>
             440 × 2 = 880 Hz
           </div>
         </div>
@@ -172,18 +175,19 @@ export const OctaveRelationship: React.FC = () => {
         <div
           style={{
             padding: "25px 40px",
-            backgroundColor: "#8b5cf622",
-            border: "2px solid #8b5cf6",
+            backgroundColor: eduTheme.card.background,
+            border: `2px solid ${eduTheme.accent.secondary}`,
+            boxShadow: eduTheme.card.shadow,
             borderRadius: 16,
           }}
         >
-          <div style={{ color: "#8b5cf6", fontSize: 24, fontWeight: 600, marginBottom: 10 }}>
+          <div style={{ color: eduTheme.accent.secondary, fontSize: 24, fontWeight: 600, marginBottom: 10 }}>
             Octave DOWN
           </div>
-          <div style={{ color: "#ffffff", fontSize: 32, fontWeight: 700 }}>
+          <div style={{ color: eduTheme.text.primary, fontSize: 32, fontWeight: 700 }}>
             f ÷ 2
           </div>
-          <div style={{ color: "#94a3b8", fontSize: 20, marginTop: 8 }}>
+          <div style={{ color: eduTheme.text.secondary, fontSize: 20, marginTop: 8 }}>
             440 ÷ 2 = 220 Hz
           </div>
         </div>
@@ -194,7 +198,9 @@ export const OctaveRelationship: React.FC = () => {
         style={{
           marginTop: 50,
           padding: "24px 48px",
-          backgroundColor: "#1e293b",
+          backgroundColor: eduTheme.card.background,
+          border: `2px solid ${eduTheme.card.border}`,
+          boxShadow: eduTheme.card.shadow,
           borderRadius: 16,
           opacity: interpolate(frame, [250, 280], [0, 1], {
             extrapolateLeft: "clamp",
@@ -205,7 +211,7 @@ export const OctaveRelationship: React.FC = () => {
         <p
           style={{
             fontSize: 28,
-            color: "#cbd5e1",
+            color: eduTheme.text.secondary,
             margin: 0,
             textAlign: "center",
           }}

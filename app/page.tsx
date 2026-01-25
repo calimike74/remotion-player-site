@@ -5,6 +5,7 @@ import { useState, useMemo } from "react";
 import { CompressionExplainer } from "../compositions/CompressionExplainer";
 import { WaveformExplainer } from "../compositions/WaveformExplainer";
 import { WaveformExamTips } from "../compositions/WaveformExamTips";
+// Dev tools (StyleShowcase, IconPreview, WaveformExplainerV2) hidden from production
 // PersonalizedReview is now accessed via /review?token=xxx - not shown on main page
 
 // Topic metadata with official Pearson Edexcel titles
@@ -32,7 +33,7 @@ const videos = [
     durationInFrames: 1450,
     description: "Visual guide to understanding waveform properties, frequency relationships, and octave calculations.",
   },
-  {
+    {
     id: "examtips",
     title: "Exam Tips",
     subtitle: "Common Waveform Mistakes",
@@ -41,7 +42,7 @@ const videos = [
     durationInFrames: 3150,
     description: "Avoid common exam mistakes with worked examples for calculations, pitch vs amplitude, and axis labels.",
   },
-];
+  ];
 
 export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState(videos[0]);

@@ -1,4 +1,5 @@
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { eduTheme } from "../shared/EducationalBackground";
 
 export const WaveformDemo: React.FC = () => {
   const frame = useCurrentFrame();
@@ -105,9 +106,9 @@ export const WaveformDemo: React.FC = () => {
       {/* Title */}
       <h2
         style={{
-          fontSize: 56,
+          fontSize: 52,
           fontWeight: 700,
-          color: "#ffffff",
+          color: eduTheme.text.primary,
           marginBottom: 40,
           opacity: labelOpacity,
           transform: `translateY(${interpolate(entryProgress, [0, 1], [-30, 0])}px)`,
@@ -116,84 +117,89 @@ export const WaveformDemo: React.FC = () => {
         Compression Reduces Dynamic Range
       </h2>
 
-      {/* Waveform container */}
+      {/* Waveform card container */}
       <div
         style={{
           position: "relative",
-          width: waveformWidth,
-          height: waveformHeight,
+          width: waveformWidth + 60,
+          padding: 30,
+          backgroundColor: eduTheme.card.background,
+          borderRadius: 16,
+          border: `1px solid ${eduTheme.card.border}`,
+          boxShadow: eduTheme.card.shadow,
           transform: `scale(${entryProgress})`,
         }}
       >
-        {/* Original waveform (fades out) */}
-        <svg
-          width={waveformWidth}
-          height={waveformHeight}
-          style={{
-            position: "absolute",
-            opacity: 1 - compressionProgress * 0.7,
-          }}
-        >
-          <path
-            d={originalPath}
-            fill="none"
-            stroke="#3b82f6"
-            strokeWidth={4}
-            strokeLinecap="round"
+        <div style={{ position: "relative", width: waveformWidth, height: waveformHeight }}>
+          {/* Original waveform (fades out) */}
+          <svg
+            width={waveformWidth}
+            height={waveformHeight}
+            style={{
+              position: "absolute",
+              opacity: 1 - compressionProgress * 0.7,
+            }}
+          >
+            <path
+              d={originalPath}
+              fill="none"
+              stroke={eduTheme.accent.primary}
+              strokeWidth={4}
+              strokeLinecap="round"
+            />
+          </svg>
+
+          {/* Compressed waveform (fades in) */}
+          <svg
+            width={waveformWidth}
+            height={waveformHeight}
+            style={{
+              position: "absolute",
+              opacity: compressionProgress,
+            }}
+          >
+            <path
+              d={compressedPath}
+              fill="none"
+              stroke="#16a34a"
+              strokeWidth={4}
+              strokeLinecap="round"
+            />
+          </svg>
+
+          {/* Threshold line */}
+          <div
+            style={{
+              position: "absolute",
+              top: thresholdY,
+              left: 0,
+              right: 0,
+              height: 3,
+              background: "#dc2626",
+              opacity: interpolate(frame, [40, 55], [0, 1], {
+                extrapolateLeft: "clamp",
+                extrapolateRight: "clamp",
+              }),
+            }}
           />
-        </svg>
 
-        {/* Compressed waveform (fades in) */}
-        <svg
-          width={waveformWidth}
-          height={waveformHeight}
-          style={{
-            position: "absolute",
-            opacity: compressionProgress,
-          }}
-        >
-          <path
-            d={compressedPath}
-            fill="none"
-            stroke="#22c55e"
-            strokeWidth={4}
-            strokeLinecap="round"
-          />
-        </svg>
-
-        {/* Threshold line */}
-        <div
-          style={{
-            position: "absolute",
-            top: thresholdY,
-            left: 0,
-            right: 0,
-            height: 3,
-            background: "#ef4444",
-            opacity: interpolate(frame, [40, 55], [0, 1], {
-              extrapolateLeft: "clamp",
-              extrapolateRight: "clamp",
-            }),
-            boxShadow: "0 0 15px #ef4444",
-          }}
-        />
-
-        {/* Threshold label */}
-        <div
-          style={{
-            position: "absolute",
-            top: thresholdY - 40,
-            right: 20,
-            color: "#ef4444",
-            fontSize: 28,
-            fontWeight: 700,
-            opacity: interpolate(frame, [45, 60], [0, 1], {
-              extrapolateLeft: "clamp",
-              extrapolateRight: "clamp",
-            }),
-          }}
-        >
-          THRESHOLD
+          {/* Threshold label */}
+          <div
+            style={{
+              position: "absolute",
+              top: thresholdY - 40,
+              right: 20,
+              color: "#dc2626",
+              fontSize: 24,
+              fontWeight: 600,
+              opacity: interpolate(frame, [45, 60], [0, 1], {
+                extrapolateLeft: "clamp",
+                extrapolateRight: "clamp",
+              }),
+            }}
+          >
+            THRESHOLD
+          </div>
         </div>
       </div>
 
@@ -217,11 +223,11 @@ export const WaveformDemo: React.FC = () => {
             style={{
               width: 40,
               height: 6,
-              backgroundColor: "#3b82f6",
+              backgroundColor: eduTheme.accent.primary,
               borderRadius: 3,
             }}
           />
-          <span style={{ color: "#94a3b8", fontSize: 28 }}>Original Signal</span>
+          <span style={{ color: eduTheme.text.secondary, fontSize: 24, fontWeight: 500 }}>Original Signal</span>
         </div>
 
         <div
@@ -236,22 +242,22 @@ export const WaveformDemo: React.FC = () => {
             style={{
               width: 40,
               height: 6,
-              backgroundColor: "#22c55e",
+              backgroundColor: "#16a34a",
               borderRadius: 3,
             }}
           />
-          <span style={{ color: "#94a3b8", fontSize: 28 }}>Compressed (4:1)</span>
+          <span style={{ color: eduTheme.text.secondary, fontSize: 24, fontWeight: 500 }}>Compressed (4:1)</span>
         </div>
       </div>
 
       {/* Explanation text */}
       <p
         style={{
-          color: "#64748b",
-          fontSize: 32,
-          marginTop: 40,
+          color: eduTheme.text.secondary,
+          fontSize: 28,
+          marginTop: 32,
           textAlign: "center",
-          maxWidth: 1200,
+          maxWidth: 1000,
           opacity: compressedLabelOpacity,
         }}
       >

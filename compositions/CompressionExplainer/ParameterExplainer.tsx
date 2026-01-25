@@ -1,4 +1,5 @@
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { EducationalBackground, eduTheme } from "../shared/EducationalBackground";
 
 const PARAMETERS = [
   {
@@ -61,12 +62,13 @@ export const ParameterExplainer: React.FC = () => {
         opacity: exitOpacity,
       }}
     >
+      <EducationalBackground />
       {/* Title */}
       <h2
         style={{
           fontSize: 64,
           fontWeight: 700,
-          color: "#ffffff",
+          color: eduTheme.text.primary,
           marginBottom: 60,
           transform: `translateY(${interpolate(titleProgress, [0, 1], [-30, 0])}px)`,
           opacity: titleProgress,
@@ -100,8 +102,9 @@ export const ParameterExplainer: React.FC = () => {
             <div
               key={param.name}
               style={{
-                backgroundColor: `${param.color}11`,
-                border: `3px solid ${param.color}44`,
+                backgroundColor: eduTheme.card.background,
+                border: `3px solid ${eduTheme.card.border}`,
+                boxShadow: eduTheme.card.shadow,
                 borderRadius: 20,
                 padding: "40px 50px",
                 transform: `scale(${scale})`,
@@ -155,7 +158,7 @@ export const ParameterExplainer: React.FC = () => {
                     style={{
                       fontSize: 36,
                       fontWeight: 700,
-                      color: "#ffffff",
+                      color: eduTheme.text.primary,
                     }}
                   >
                     {param.value}
@@ -164,7 +167,7 @@ export const ParameterExplainer: React.FC = () => {
                 <p
                   style={{
                     fontSize: 24,
-                    color: "#94a3b8",
+                    color: eduTheme.text.secondary,
                     margin: 0,
                   }}
                 >
@@ -181,7 +184,9 @@ export const ParameterExplainer: React.FC = () => {
         style={{
           marginTop: 60,
           padding: "24px 48px",
-          backgroundColor: "#1e293b",
+          backgroundColor: eduTheme.card.background,
+          border: `2px solid ${eduTheme.card.border}`,
+          boxShadow: eduTheme.card.shadow,
           borderRadius: 16,
           opacity: interpolate(frame, [100, 120], [0, 1], {
             extrapolateLeft: "clamp",
@@ -192,7 +197,7 @@ export const ParameterExplainer: React.FC = () => {
         <p
           style={{
             fontSize: 28,
-            color: "#cbd5e1",
+            color: eduTheme.text.secondary,
             margin: 0,
             textAlign: "center",
           }}

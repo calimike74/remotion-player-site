@@ -1,4 +1,5 @@
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { eduTheme } from "../shared/EducationalBackground";
 
 export const CompressionGraph: React.FC = () => {
   const frame = useCurrentFrame();
@@ -99,12 +100,21 @@ export const CompressionGraph: React.FC = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        gap: 100,
+        gap: 80,
         opacity: exitOpacity,
       }}
     >
-      {/* Graph */}
-      <div style={{ position: "relative" }}>
+      {/* Graph Card */}
+      <div
+        style={{
+          position: "relative",
+          backgroundColor: eduTheme.card.background,
+          borderRadius: 16,
+          border: `1px solid ${eduTheme.card.border}`,
+          boxShadow: eduTheme.card.shadow,
+          padding: 20,
+        }}
+      >
         <svg width={graphSize + padding * 2} height={graphSize + padding * 2}>
           {/* Grid lines */}
           {[0.25, 0.5, 0.75, 1].map((tick) => (
@@ -114,7 +124,7 @@ export const CompressionGraph: React.FC = () => {
                 y1={padding + graphSize * (1 - tick)}
                 x2={padding + graphSize}
                 y2={padding + graphSize * (1 - tick)}
-                stroke="#334155"
+                stroke="#e2e8f0"
                 strokeWidth={1}
               />
               <line
@@ -122,7 +132,7 @@ export const CompressionGraph: React.FC = () => {
                 y1={padding}
                 x2={padding + graphSize * tick}
                 y2={padding + graphSize}
-                stroke="#334155"
+                stroke="#e2e8f0"
                 strokeWidth={1}
               />
             </g>
@@ -136,8 +146,8 @@ export const CompressionGraph: React.FC = () => {
               y1={padding}
               x2={padding}
               y2={padding + graphSize}
-              stroke="#64748b"
-              strokeWidth={3}
+              stroke={eduTheme.text.secondary}
+              strokeWidth={2}
             />
             {/* X axis */}
             <line
@@ -145,8 +155,8 @@ export const CompressionGraph: React.FC = () => {
               y1={padding + graphSize}
               x2={padding + graphSize}
               y2={padding + graphSize}
-              stroke="#64748b"
-              strokeWidth={3}
+              stroke={eduTheme.text.secondary}
+              strokeWidth={2}
             />
           </g>
 
@@ -156,7 +166,7 @@ export const CompressionGraph: React.FC = () => {
             y1={padding + graphSize}
             x2={padding + graphSize * unityLineProgress}
             y2={padding + graphSize * (1 - unityLineProgress)}
-            stroke="#475569"
+            stroke="#94a3b8"
             strokeWidth={2}
             strokeDasharray="10,10"
             opacity={unityLineProgress}
@@ -168,7 +178,7 @@ export const CompressionGraph: React.FC = () => {
             y1={padding}
             x2={padding + thresholdNorm * graphSize}
             y2={padding + graphSize}
-            stroke="#ef4444"
+            stroke="#dc2626"
             strokeWidth={2}
             strokeDasharray="8,8"
             opacity={thresholdProgress}
@@ -178,8 +188,8 @@ export const CompressionGraph: React.FC = () => {
           <path
             d={generateCurvePath()}
             fill="none"
-            stroke="#3b82f6"
-            strokeWidth={5}
+            stroke={eduTheme.accent.primary}
+            strokeWidth={4}
             strokeLinecap="round"
             strokeDasharray={graphSize * 2}
             strokeDashoffset={(1 - compressionCurveProgress) * graphSize * 2}
@@ -194,7 +204,7 @@ export const CompressionGraph: React.FC = () => {
                 y1={dotY}
                 x2={dotX}
                 y2={padding + graphSize}
-                stroke="#22c55e"
+                stroke="#16a34a"
                 strokeWidth={2}
                 strokeDasharray="4,4"
                 opacity={0.6}
@@ -205,14 +215,13 @@ export const CompressionGraph: React.FC = () => {
                 y1={dotY}
                 x2={dotX}
                 y2={dotY}
-                stroke="#22c55e"
+                stroke="#16a34a"
                 strokeWidth={2}
                 strokeDasharray="4,4"
                 opacity={0.6}
               />
               {/* The dot */}
-              <circle cx={dotX} cy={dotY} r={12} fill="#22c55e" />
-              <circle cx={dotX} cy={dotY} r={20} fill="none" stroke="#22c55e" strokeWidth={2} opacity={0.5} />
+              <circle cx={dotX} cy={dotY} r={10} fill="#16a34a" />
             </>
           )}
         </svg>
@@ -221,12 +230,12 @@ export const CompressionGraph: React.FC = () => {
         <div
           style={{
             position: "absolute",
-            bottom: 20,
-            left: padding,
-            right: padding,
+            bottom: 30,
+            left: padding + 20,
+            right: padding + 20,
             textAlign: "center",
-            color: "#94a3b8",
-            fontSize: 24,
+            color: eduTheme.text.secondary,
+            fontSize: 20,
             fontWeight: 600,
             opacity: axesProgress,
           }}
@@ -237,10 +246,10 @@ export const CompressionGraph: React.FC = () => {
           style={{
             position: "absolute",
             top: "50%",
-            left: -30,
+            left: -20,
             transform: "rotate(-90deg) translateX(-50%)",
-            color: "#94a3b8",
-            fontSize: 24,
+            color: eduTheme.text.secondary,
+            fontSize: 20,
             fontWeight: 600,
             opacity: axesProgress,
             whiteSpace: "nowrap",
@@ -253,11 +262,11 @@ export const CompressionGraph: React.FC = () => {
         <div
           style={{
             position: "absolute",
-            top: padding - 40,
-            left: padding + thresholdNorm * graphSize - 60,
-            color: "#ef4444",
-            fontSize: 22,
-            fontWeight: 700,
+            top: padding,
+            left: padding + thresholdNorm * graphSize - 40,
+            color: "#dc2626",
+            fontSize: 18,
+            fontWeight: 600,
             opacity: thresholdProgress,
           }}
         >
@@ -270,14 +279,15 @@ export const CompressionGraph: React.FC = () => {
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: 30,
+          gap: 24,
+          maxWidth: 400,
         }}
       >
         <h2
           style={{
-            fontSize: 48,
+            fontSize: 44,
             fontWeight: 700,
-            color: "#ffffff",
+            color: eduTheme.text.primary,
             margin: 0,
             opacity: axesProgress,
           }}
@@ -286,26 +296,26 @@ export const CompressionGraph: React.FC = () => {
         </h2>
 
         <div style={{ opacity: unityLineProgress }}>
-          <div style={{ color: "#475569", fontSize: 24, marginBottom: 8 }}>
+          <div style={{ color: "#94a3b8", fontSize: 20, marginBottom: 6 }}>
             ─ ─ Unity (1:1)
           </div>
-          <p style={{ color: "#64748b", fontSize: 22, margin: 0 }}>No compression</p>
+          <p style={{ color: eduTheme.text.secondary, fontSize: 18, margin: 0 }}>No compression</p>
         </div>
 
         <div style={{ opacity: thresholdProgress }}>
-          <div style={{ color: "#ef4444", fontSize: 24, marginBottom: 8 }}>
+          <div style={{ color: "#dc2626", fontSize: 20, marginBottom: 6 }}>
             ┊ Threshold: -20dB
           </div>
-          <p style={{ color: "#64748b", fontSize: 22, margin: 0 }}>
+          <p style={{ color: eduTheme.text.secondary, fontSize: 18, margin: 0 }}>
             Compression begins here
           </p>
         </div>
 
         <div style={{ opacity: compressionCurveProgress }}>
-          <div style={{ color: "#3b82f6", fontSize: 24, marginBottom: 8 }}>
+          <div style={{ color: eduTheme.accent.primary, fontSize: 20, marginBottom: 6 }}>
             ━ Ratio: 4:1
           </div>
-          <p style={{ color: "#64748b", fontSize: 22, margin: 0 }}>
+          <p style={{ color: eduTheme.text.secondary, fontSize: 18, margin: 0 }}>
             4dB input → 1dB output above threshold
           </p>
         </div>
@@ -313,13 +323,13 @@ export const CompressionGraph: React.FC = () => {
         {dotProgress > 0 && gainReductionDB > 0 && (
           <div
             style={{
-              backgroundColor: "#22c55e22",
-              padding: "20px 30px",
-              borderRadius: 12,
-              border: "2px solid #22c55e",
+              backgroundColor: "#f0fdf4",
+              padding: "16px 24px",
+              borderRadius: 10,
+              border: "2px solid #16a34a",
             }}
           >
-            <div style={{ color: "#22c55e", fontSize: 28, fontWeight: 700 }}>
+            <div style={{ color: "#16a34a", fontSize: 24, fontWeight: 700 }}>
               Gain Reduction: -{gainReductionDB}dB
             </div>
           </div>

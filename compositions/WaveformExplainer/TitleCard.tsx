@@ -1,4 +1,5 @@
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { eduTheme } from "../shared/EducationalBackground";
 
 interface TitleCardProps {
   title: string;
@@ -59,7 +60,7 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, topic }) 
       {/* Topic badge */}
       <div
         style={{
-          backgroundColor: "#3b82f6",
+          backgroundColor: eduTheme.accent.primary,
           color: "#ffffff",
           padding: "12px 32px",
           borderRadius: 50,
@@ -67,7 +68,7 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, topic }) 
           fontWeight: 700,
           letterSpacing: 2,
           transform: `scale(${badgeProgress})`,
-          boxShadow: "0 0 30px #3b82f688",
+          boxShadow: `0 0 30px ${eduTheme.accent.primary}88`,
         }}
       >
         TOPIC {topic}
@@ -78,12 +79,12 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, topic }) 
         style={{
           fontSize: 120,
           fontWeight: 900,
-          color: "#ffffff",
+          color: eduTheme.text.primary,
           margin: 0,
           letterSpacing: -2,
           transform: `translateY(${interpolate(titleProgress, [0, 1], [50, 0])}px)`,
           opacity: titleProgress,
-          textShadow: "0 4px 40px rgba(59, 130, 246, 0.5)",
+          textShadow: `0 4px 40px ${eduTheme.accent.primary}50`,
         }}
       >
         {title}
@@ -94,7 +95,7 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, topic }) 
         style={{
           fontSize: 48,
           fontWeight: 500,
-          color: "#94a3b8",
+          color: eduTheme.text.secondary,
           margin: 0,
           letterSpacing: 4,
           transform: `translateY(${interpolate(subtitleProgress, [0, 1], [30, 0])}px)`,
@@ -109,7 +110,7 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, topic }) 
         style={{
           width: lineWidth,
           height: 4,
-          background: "linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, transparent)",
+          background: `linear-gradient(90deg, transparent, ${eduTheme.accent.primary}, ${eduTheme.accent.secondary}, transparent)`,
           borderRadius: 2,
         }}
       />

@@ -4,6 +4,7 @@ import { TitleCard } from "./TitleCard";
 import { CalculationDemo } from "./CalculationDemo";
 import { PitchAmplitude } from "./PitchAmplitude";
 import { AxisLabels } from "./AxisLabels";
+import { EducationalBackground } from "../shared/EducationalBackground";
 
 export const WaveformExamTips: React.FC = () => {
   const frame = useCurrentFrame();
@@ -19,10 +20,10 @@ export const WaveformExamTips: React.FC = () => {
   return (
     <AbsoluteFill
       style={{
-        backgroundColor: "#0a0a1a",
         fontFamily: "system-ui, -apple-system, sans-serif",
       }}
     >
+      <EducationalBackground />
       {/* ElevenLabs narration - timed to not overlap */}
       <Sequence from={0}>
         <Audio src={staticFile("examtips_01.mp3")} />

@@ -1,4 +1,5 @@
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { eduTheme } from "../shared/EducationalBackground";
 
 export const CalculationDemo: React.FC = () => {
   const frame = useCurrentFrame();
@@ -49,7 +50,7 @@ export const CalculationDemo: React.FC = () => {
         style={{
           fontSize: 48,
           fontWeight: 700,
-          color: "#ef4444",
+          color: "#dc2626",
           marginBottom: 40,
           opacity: entryProgress,
         }}
@@ -68,7 +69,7 @@ export const CalculationDemo: React.FC = () => {
           <div
             style={{
               fontSize: 24,
-              color: "#ef4444",
+              color: "#dc2626",
               marginBottom: 20,
               fontWeight: 600,
             }}
@@ -77,14 +78,15 @@ export const CalculationDemo: React.FC = () => {
           </div>
           <div
             style={{
-              backgroundColor: "#1e293b",
-              border: "2px solid #ef4444",
+              backgroundColor: eduTheme.card.background,
+              border: "2px solid #dc2626",
+              boxShadow: eduTheme.card.shadow,
               borderRadius: 16,
               padding: "30px 40px",
               position: "relative",
             }}
           >
-            <div style={{ fontSize: 32, color: "#ffffff", fontFamily: "serif", fontStyle: "italic" }}>
+            <div style={{ fontSize: 32, color: eduTheme.text.primary, fontFamily: "serif", fontStyle: "italic" }}>
               "The frequency is 400Hz"
             </div>
 
@@ -96,7 +98,7 @@ export const CalculationDemo: React.FC = () => {
                 right: -15,
                 width: 40,
                 height: 40,
-                backgroundColor: "#ef4444",
+                backgroundColor: "#dc2626",
                 borderRadius: "50%",
                 display: "flex",
                 alignItems: "center",
@@ -110,7 +112,7 @@ export const CalculationDemo: React.FC = () => {
             </div>
           </div>
 
-          <div style={{ color: "#94a3b8", fontSize: 20, marginTop: 15, textAlign: "center" }}>
+          <div style={{ color: eduTheme.text.secondary, fontSize: 20, marginTop: 15, textAlign: "center" }}>
             12 out of 15 students
           </div>
         </div>
@@ -151,7 +153,7 @@ export const CalculationDemo: React.FC = () => {
           <div
             style={{
               fontSize: 24,
-              color: "#22c55e",
+              color: "#16a34a",
               marginBottom: 20,
               fontWeight: 600,
               opacity: step1Progress,
@@ -161,8 +163,9 @@ export const CalculationDemo: React.FC = () => {
           </div>
           <div
             style={{
-              backgroundColor: "#1e293b",
-              border: "2px solid #22c55e",
+              backgroundColor: eduTheme.card.background,
+              border: "2px solid #16a34a",
+              boxShadow: eduTheme.card.shadow,
               borderRadius: 16,
               padding: "25px 35px",
               position: "relative",
@@ -172,51 +175,51 @@ export const CalculationDemo: React.FC = () => {
             <div
               style={{
                 fontSize: 26,
-                color: "#ffffff",
+                color: eduTheme.text.primary,
                 marginBottom: 15,
                 opacity: step1Progress,
                 transform: `translateX(${interpolate(step1Progress, [0, 1], [-20, 0])}px)`,
               }}
             >
-              <span style={{ color: "#94a3b8" }}>1.</span> 4 cycles in 10ms
+              <span style={{ color: eduTheme.text.secondary }}>1.</span> 4 cycles in 10ms
             </div>
 
             {/* Step 2: Period calculation */}
             <div
               style={{
                 fontSize: 26,
-                color: "#ffffff",
+                color: eduTheme.text.primary,
                 marginBottom: 15,
                 opacity: step2Progress,
                 transform: `translateX(${interpolate(step2Progress, [0, 1], [-20, 0])}px)`,
               }}
             >
-              <span style={{ color: "#94a3b8" }}>2.</span> T = 10ms ÷ 4 = <span style={{ color: "#3b82f6" }}>2.5ms</span>
+              <span style={{ color: eduTheme.text.secondary }}>2.</span> T = 10ms ÷ 4 = <span style={{ color: eduTheme.accent.primary }}>2.5ms</span>
             </div>
 
             {/* Step 3: Convert to seconds */}
             <div
               style={{
                 fontSize: 26,
-                color: "#ffffff",
+                color: eduTheme.text.primary,
                 marginBottom: 15,
                 opacity: step3Progress,
                 transform: `translateX(${interpolate(step3Progress, [0, 1], [-20, 0])}px)`,
               }}
             >
-              <span style={{ color: "#94a3b8" }}>3.</span> T = <span style={{ color: "#3b82f6" }}>0.0025s</span>
+              <span style={{ color: eduTheme.text.secondary }}>3.</span> T = <span style={{ color: eduTheme.accent.primary }}>0.0025s</span>
             </div>
 
             {/* Step 4: Frequency */}
             <div
               style={{
                 fontSize: 26,
-                color: "#ffffff",
+                color: eduTheme.text.primary,
                 opacity: step4Progress,
                 transform: `translateX(${interpolate(step4Progress, [0, 1], [-20, 0])}px)`,
               }}
             >
-              <span style={{ color: "#94a3b8" }}>4.</span> f = 1/T = 1/0.0025 = <span style={{ color: "#22c55e", fontWeight: 700 }}>400Hz</span>
+              <span style={{ color: eduTheme.text.secondary }}>4.</span> f = 1/T = 1/0.0025 = <span style={{ color: "#16a34a", fontWeight: 700 }}>400Hz</span>
             </div>
 
             {/* Tick mark */}
@@ -227,7 +230,7 @@ export const CalculationDemo: React.FC = () => {
                 right: -15,
                 width: 40,
                 height: 40,
-                backgroundColor: "#22c55e",
+                backgroundColor: "#16a34a",
                 borderRadius: "50%",
                 display: "flex",
                 alignItems: "center",
@@ -250,8 +253,8 @@ export const CalculationDemo: React.FC = () => {
         style={{
           marginTop: 50,
           padding: "20px 40px",
-          backgroundColor: "#22c55e22",
-          border: "2px solid #22c55e",
+          backgroundColor: "#16a34a15",
+          border: "2px solid #16a34a",
           borderRadius: 12,
           opacity: interpolate(frame, [900, 930], [0, 1], {
             extrapolateLeft: "clamp",
@@ -259,7 +262,7 @@ export const CalculationDemo: React.FC = () => {
           }),
         }}
       >
-        <span style={{ color: "#22c55e", fontSize: 28, fontWeight: 600 }}>
+        <span style={{ color: "#16a34a", fontSize: 28, fontWeight: 600 }}>
           Same answer, but now worth full marks!
         </span>
       </div>

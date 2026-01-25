@@ -1,4 +1,5 @@
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { eduTheme } from "../shared/EducationalBackground";
 
 interface TitleCardProps {
   title: string;
@@ -35,8 +36,8 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, topic }) 
       {/* Topic badge */}
       <div
         style={{
-          backgroundColor: "#ef444422",
-          border: "2px solid #ef4444",
+          backgroundColor: `${eduTheme.accent.primary}15`,
+          border: `2px solid ${eduTheme.accent.primary}`,
           borderRadius: 8,
           padding: "8px 20px",
           marginBottom: 30,
@@ -44,7 +45,7 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, topic }) 
           opacity: topicProgress,
         }}
       >
-        <span style={{ color: "#ef4444", fontSize: 24, fontWeight: 600 }}>
+        <span style={{ color: eduTheme.accent.primary, fontSize: 24, fontWeight: 600 }}>
           Topic {topic}
         </span>
       </div>
@@ -54,7 +55,7 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, topic }) 
         style={{
           fontSize: 120,
           fontWeight: 800,
-          color: "#ffffff",
+          color: eduTheme.text.primary,
           margin: 0,
           letterSpacing: -2,
           transform: `scale(${titleProgress})`,
@@ -68,7 +69,7 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, topic }) 
       <p
         style={{
           fontSize: 48,
-          color: "#94a3b8",
+          color: eduTheme.text.secondary,
           marginTop: 20,
           fontWeight: 500,
           transform: `translateY(${interpolate(subtitleProgress, [0, 1], [20, 0])}px)`,
@@ -88,17 +89,17 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, topic }) 
           opacity: statsProgress,
         }}
       >
-        <div style={{ textAlign: "center" }}>
-          <div style={{ fontSize: 56, fontWeight: 800, color: "#ef4444" }}>80%</div>
-          <div style={{ fontSize: 20, color: "#94a3b8" }}>missing Hz values</div>
+        <div style={{ textAlign: "center", backgroundColor: eduTheme.card.background, padding: "20px 30px", borderRadius: 12, border: `2px solid ${eduTheme.card.border}`, boxShadow: eduTheme.card.shadow }}>
+          <div style={{ fontSize: 56, fontWeight: 800, color: "#dc2626" }}>80%</div>
+          <div style={{ fontSize: 20, color: eduTheme.text.secondary }}>missing Hz values</div>
         </div>
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center", backgroundColor: eduTheme.card.background, padding: "20px 30px", borderRadius: 12, border: `2px solid ${eduTheme.card.border}`, boxShadow: eduTheme.card.shadow }}>
           <div style={{ fontSize: 56, fontWeight: 800, color: "#f59e0b" }}>47%</div>
-          <div style={{ fontSize: 20, color: "#94a3b8" }}>no calculations</div>
+          <div style={{ fontSize: 20, color: eduTheme.text.secondary }}>no calculations</div>
         </div>
-        <div style={{ textAlign: "center" }}>
-          <div style={{ fontSize: 56, fontWeight: 800, color: "#22c55e" }}>27%</div>
-          <div style={{ fontSize: 20, color: "#94a3b8" }}>axis errors</div>
+        <div style={{ textAlign: "center", backgroundColor: eduTheme.card.background, padding: "20px 30px", borderRadius: 12, border: `2px solid ${eduTheme.card.border}`, boxShadow: eduTheme.card.shadow }}>
+          <div style={{ fontSize: 56, fontWeight: 800, color: "#16a34a" }}>27%</div>
+          <div style={{ fontSize: 20, color: eduTheme.text.secondary }}>axis errors</div>
         </div>
       </div>
     </div>

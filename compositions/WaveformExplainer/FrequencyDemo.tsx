@@ -1,4 +1,5 @@
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { eduTheme } from "../shared/EducationalBackground";
 
 export const FrequencyDemo: React.FC = () => {
   const frame = useCurrentFrame();
@@ -25,7 +26,7 @@ export const FrequencyDemo: React.FC = () => {
 
     return (
       <svg width={width} height={height}>
-        <line x1={0} y1={centerY} x2={width} y2={centerY} stroke="#334155" strokeWidth={1} />
+        <line x1={0} y1={centerY} x2={width} y2={centerY} stroke={eduTheme.card.border} strokeWidth={1} />
         <path d={points.join(" ")} fill="none" stroke={color} strokeWidth={3} />
       </svg>
     );
@@ -77,7 +78,7 @@ export const FrequencyDemo: React.FC = () => {
         style={{
           fontSize: 56,
           fontWeight: 700,
-          color: "#ffffff",
+          color: eduTheme.text.primary,
           marginBottom: 50,
           opacity: entryProgress,
         }}
@@ -99,10 +100,11 @@ export const FrequencyDemo: React.FC = () => {
                 gap: 40,
                 opacity: rowProgress,
                 transform: `translateX(${interpolate(rowProgress, [0, 1], [-50, 0])}px)`,
-                backgroundColor: isReference ? `${f.color}22` : "transparent",
+                backgroundColor: isReference ? `${f.color}15` : eduTheme.card.background,
                 padding: "15px 30px",
                 borderRadius: 12,
-                border: isReference ? `2px solid ${f.color}` : "2px solid transparent",
+                border: isReference ? `2px solid ${f.color}` : `2px solid ${eduTheme.card.border}`,
+                boxShadow: eduTheme.card.shadow,
               }}
             >
               {/* Note name */}
@@ -123,7 +125,7 @@ export const FrequencyDemo: React.FC = () => {
                   width: 140,
                   fontSize: 32,
                   fontWeight: 700,
-                  color: "#ffffff",
+                  color: eduTheme.text.primary,
                 }}
               >
                 {f.hz} Hz
@@ -137,7 +139,7 @@ export const FrequencyDemo: React.FC = () => {
                 style={{
                   width: 150,
                   fontSize: 24,
-                  color: "#94a3b8",
+                  color: eduTheme.text.secondary,
                 }}
               >
                 {f.cycles} cycle{f.cycles > 1 ? "s" : ""}/window
@@ -166,7 +168,9 @@ export const FrequencyDemo: React.FC = () => {
         style={{
           marginTop: 50,
           padding: "20px 40px",
-          backgroundColor: "#1e293b",
+          backgroundColor: eduTheme.card.background,
+          border: `2px solid ${eduTheme.card.border}`,
+          boxShadow: eduTheme.card.shadow,
           borderRadius: 12,
           opacity: interpolate(frame, [200, 220], [0, 1], {
             extrapolateLeft: "clamp",
@@ -174,7 +178,7 @@ export const FrequencyDemo: React.FC = () => {
           }),
         }}
       >
-        <span style={{ color: "#94a3b8", fontSize: 28 }}>
+        <span style={{ color: eduTheme.text.secondary, fontSize: 28 }}>
           Higher frequency = More cycles = Higher pitch
         </span>
       </div>

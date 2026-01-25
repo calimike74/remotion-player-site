@@ -1,4 +1,5 @@
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { eduTheme } from "../shared/EducationalBackground";
 
 export const AxisLabels: React.FC = () => {
   const frame = useCurrentFrame();
@@ -66,7 +67,7 @@ export const AxisLabels: React.FC = () => {
         style={{
           fontSize: 48,
           fontWeight: 700,
-          color: "#8b5cf6",
+          color: eduTheme.accent.primary,
           marginBottom: 30,
           opacity: entryProgress,
         }}
@@ -83,14 +84,15 @@ export const AxisLabels: React.FC = () => {
       >
         <div
           style={{
-            backgroundColor: "#1e293b",
-            border: "2px solid #ef4444",
+            backgroundColor: eduTheme.card.background,
+            border: "2px solid #dc2626",
+            boxShadow: eduTheme.card.shadow,
             borderRadius: 16,
             padding: "15px 30px",
             position: "relative",
           }}
         >
-          <div style={{ fontSize: 24, color: "#ffffff", fontFamily: "serif", fontStyle: "italic" }}>
+          <div style={{ fontSize: 24, color: eduTheme.text.primary, fontFamily: "serif", fontStyle: "italic" }}>
             "X-axis = frequency, Y-axis = time"
           </div>
           <div
@@ -100,7 +102,7 @@ export const AxisLabels: React.FC = () => {
               right: -10,
               width: 28,
               height: 28,
-              backgroundColor: "#ef4444",
+              backgroundColor: "#dc2626",
               borderRadius: "50%",
               display: "flex",
               alignItems: "center",
@@ -113,7 +115,7 @@ export const AxisLabels: React.FC = () => {
             ✗
           </div>
         </div>
-        <div style={{ color: "#94a3b8", fontSize: 16, marginTop: 8, textAlign: "center" }}>
+        <div style={{ color: eduTheme.text.secondary, fontSize: 16, marginTop: 8, textAlign: "center" }}>
           4 students reversed the axes
         </div>
       </div>
@@ -123,7 +125,7 @@ export const AxisLabels: React.FC = () => {
         style={{
           opacity: promptProgress,
           fontSize: 28,
-          color: "#8b5cf6",
+          color: eduTheme.accent.primary,
           marginBottom: 20,
           fontWeight: 600,
         }}
@@ -147,9 +149,9 @@ export const AxisLabels: React.FC = () => {
             top: 30,
             width: 600,
             height: 300,
-            backgroundColor: "#0f172a",
+            backgroundColor: eduTheme.background.secondary,
             borderRadius: 8,
-            border: "2px solid #334155",
+            border: `2px solid ${eduTheme.card.border}`,
           }}
         >
           {/* Center line */}
@@ -160,7 +162,7 @@ export const AxisLabels: React.FC = () => {
               left: 0,
               width: "100%",
               height: 1,
-              backgroundColor: "#334155",
+              backgroundColor: eduTheme.card.border,
             }}
           />
 
@@ -169,7 +171,7 @@ export const AxisLabels: React.FC = () => {
             <path
               d={generateWavePath()}
               fill="none"
-              stroke="#3b82f6"
+              stroke={eduTheme.accent.primary}
               strokeWidth={3}
             />
           </svg>
@@ -188,14 +190,14 @@ export const AxisLabels: React.FC = () => {
         >
           <div
             style={{
-              backgroundColor: "#22c55e22",
-              border: "2px solid #22c55e",
+              backgroundColor: "#16a34a15",
+              border: "2px solid #16a34a",
               borderRadius: 8,
               padding: "10px 20px",
               whiteSpace: "nowrap",
             }}
           >
-            <span style={{ color: "#22c55e", fontSize: 24, fontWeight: 700 }}>
+            <span style={{ color: "#16a34a", fontSize: 24, fontWeight: 700 }}>
               Y = AMPLITUDE
             </span>
           </div>
@@ -213,13 +215,13 @@ export const AxisLabels: React.FC = () => {
         >
           <div
             style={{
-              backgroundColor: "#f59e0b22",
-              border: "2px solid #f59e0b",
+              backgroundColor: `${eduTheme.accent.primary}15`,
+              border: `2px solid ${eduTheme.accent.primary}`,
               borderRadius: 8,
               padding: "10px 20px",
             }}
           >
-            <span style={{ color: "#f59e0b", fontSize: 24, fontWeight: 700 }}>
+            <span style={{ color: eduTheme.accent.primary, fontSize: 24, fontWeight: 700 }}>
               X = TIME (ms)
             </span>
           </div>
@@ -239,8 +241,8 @@ export const AxisLabels: React.FC = () => {
             opacity: yLabelProgress,
           }}
         >
-          <span style={{ color: "#22c55e", fontSize: 20 }}>▲</span>
-          <span style={{ color: "#22c55e", fontSize: 20 }}>▼</span>
+          <span style={{ color: "#16a34a", fontSize: 20 }}>▲</span>
+          <span style={{ color: "#16a34a", fontSize: 20 }}>▼</span>
         </div>
 
         <div
@@ -254,8 +256,8 @@ export const AxisLabels: React.FC = () => {
             opacity: xLabelProgress,
           }}
         >
-          <span style={{ color: "#f59e0b", fontSize: 20 }}>◀</span>
-          <span style={{ color: "#f59e0b", fontSize: 20 }}>▶</span>
+          <span style={{ color: eduTheme.accent.primary, fontSize: 20 }}>◀</span>
+          <span style={{ color: eduTheme.accent.primary, fontSize: 20 }}>▶</span>
         </div>
       </div>
 
@@ -264,14 +266,15 @@ export const AxisLabels: React.FC = () => {
         style={{
           marginTop: 30,
           padding: "20px 40px",
-          backgroundColor: "#8b5cf622",
-          border: "2px solid #8b5cf6",
+          backgroundColor: eduTheme.card.background,
+          border: `2px solid ${eduTheme.accent.primary}`,
+          boxShadow: eduTheme.card.shadow,
           borderRadius: 12,
           opacity: tipProgress,
           transform: `scale(${tipProgress})`,
         }}
       >
-        <span style={{ color: "#8b5cf6", fontSize: 26, fontWeight: 600 }}>
+        <span style={{ color: eduTheme.accent.primary, fontSize: 26, fontWeight: 600 }}>
           Memory tip: "Time travels left to right" → X = Time
         </span>
       </div>

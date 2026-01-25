@@ -4,6 +4,7 @@ import { TitleCard } from "./TitleCard";
 import { WaveformDemo } from "./WaveformDemo";
 import { CompressionGraph } from "./CompressionGraph";
 import { ParameterExplainer } from "./ParameterExplainer";
+import { EducationalBackground } from "../shared/EducationalBackground";
 
 export const CompressionExplainer: React.FC = () => {
   const frame = useCurrentFrame();
@@ -20,10 +21,11 @@ export const CompressionExplainer: React.FC = () => {
   return (
     <AbsoluteFill
       style={{
-        backgroundColor: "#0a0a1a",
-        fontFamily: "system-ui, -apple-system, sans-serif",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif",
       }}
     >
+      {/* Educational Hybrid Background */}
+      <EducationalBackground />
       {/* ElevenLabs narration - timed to not overlap */}
       {/* Section 1: 0-126 frames */}
       <Sequence from={0}>

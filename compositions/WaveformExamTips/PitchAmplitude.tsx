@@ -1,4 +1,5 @@
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { eduTheme } from "../shared/EducationalBackground";
 
 export const PitchAmplitude: React.FC = () => {
   const frame = useCurrentFrame();
@@ -48,7 +49,7 @@ export const PitchAmplitude: React.FC = () => {
 
     return (
       <svg width={width} height={height}>
-        <line x1={0} y1={centerY} x2={width} y2={centerY} stroke="#334155" strokeWidth={1} />
+        <line x1={0} y1={centerY} x2={width} y2={centerY} stroke={eduTheme.card.border} strokeWidth={1} />
         <path d={points.join(" ")} fill="none" stroke={color} strokeWidth={3} />
       </svg>
     );
@@ -72,7 +73,7 @@ export const PitchAmplitude: React.FC = () => {
         style={{
           fontSize: 48,
           fontWeight: 700,
-          color: "#f59e0b",
+          color: eduTheme.accent.primary,
           marginBottom: 40,
           opacity: entryProgress,
         }}
@@ -89,14 +90,15 @@ export const PitchAmplitude: React.FC = () => {
       >
         <div
           style={{
-            backgroundColor: "#1e293b",
-            border: "2px solid #ef4444",
+            backgroundColor: eduTheme.card.background,
+            border: "2px solid #dc2626",
+            boxShadow: eduTheme.card.shadow,
             borderRadius: 16,
             padding: "20px 40px",
             position: "relative",
           }}
         >
-          <div style={{ fontSize: 28, color: "#ffffff", fontFamily: "serif", fontStyle: "italic" }}>
+          <div style={{ fontSize: 28, color: eduTheme.text.primary, fontFamily: "serif", fontStyle: "italic" }}>
             "When pitch gets lower, amplitude increases"
           </div>
           <div
@@ -106,7 +108,7 @@ export const PitchAmplitude: React.FC = () => {
               right: -12,
               width: 32,
               height: 32,
-              backgroundColor: "#ef4444",
+              backgroundColor: "#dc2626",
               borderRadius: "50%",
               display: "flex",
               alignItems: "center",
@@ -119,7 +121,7 @@ export const PitchAmplitude: React.FC = () => {
             ✗
           </div>
         </div>
-        <div style={{ color: "#94a3b8", fontSize: 18, marginTop: 10, textAlign: "center" }}>
+        <div style={{ color: eduTheme.text.secondary, fontSize: 18, marginTop: 10, textAlign: "center" }}>
           3 students made this error
         </div>
       </div>
@@ -129,7 +131,7 @@ export const PitchAmplitude: React.FC = () => {
         style={{
           opacity: promptProgress,
           fontSize: 32,
-          color: "#f59e0b",
+          color: eduTheme.accent.primary,
           marginBottom: 30,
           fontWeight: 600,
         }}
@@ -148,46 +150,50 @@ export const PitchAmplitude: React.FC = () => {
         {/* Same amplitude, different pitch */}
         <div
           style={{
-            backgroundColor: "#1e293b",
+            backgroundColor: eduTheme.card.background,
+            border: `2px solid ${eduTheme.card.border}`,
+            boxShadow: eduTheme.card.shadow,
             borderRadius: 16,
             padding: "25px 35px",
             textAlign: "center",
           }}
         >
-          <div style={{ color: "#3b82f6", fontSize: 22, fontWeight: 600, marginBottom: 15 }}>
+          <div style={{ color: eduTheme.accent.primary, fontSize: 22, fontWeight: 600, marginBottom: 15 }}>
             Change PITCH (octave up)
           </div>
           <div style={{ marginBottom: 10 }}>
-            {generateWave(2, 35, "#3b82f6")}
+            {generateWave(2, 35, eduTheme.accent.primary)}
           </div>
           <div style={{ marginBottom: 10 }}>
-            {generateWave(4, 35, "#8b5cf6")}
+            {generateWave(4, 35, eduTheme.accent.secondary)}
           </div>
-          <div style={{ color: "#94a3b8", fontSize: 18, marginTop: 10 }}>
-            Amplitude stays the <span style={{ color: "#22c55e", fontWeight: 600 }}>SAME</span>
+          <div style={{ color: eduTheme.text.secondary, fontSize: 18, marginTop: 10 }}>
+            Amplitude stays the <span style={{ color: "#16a34a", fontWeight: 600 }}>SAME</span>
           </div>
         </div>
 
         {/* Same pitch, different amplitude */}
         <div
           style={{
-            backgroundColor: "#1e293b",
+            backgroundColor: eduTheme.card.background,
+            border: `2px solid ${eduTheme.card.border}`,
+            boxShadow: eduTheme.card.shadow,
             borderRadius: 16,
             padding: "25px 35px",
             textAlign: "center",
           }}
         >
-          <div style={{ color: "#22c55e", fontSize: 22, fontWeight: 600, marginBottom: 15 }}>
+          <div style={{ color: "#16a34a", fontSize: 22, fontWeight: 600, marginBottom: 15 }}>
             Change AMPLITUDE (louder)
           </div>
           <div style={{ marginBottom: 10 }}>
-            {generateWave(3, 20, "#22c55e")}
+            {generateWave(3, 20, "#16a34a")}
           </div>
           <div style={{ marginBottom: 10 }}>
-            {generateWave(3, 40, "#10b981")}
+            {generateWave(3, 40, "#22c55e")}
           </div>
-          <div style={{ color: "#94a3b8", fontSize: 18, marginTop: 10 }}>
-            Pitch stays the <span style={{ color: "#3b82f6", fontWeight: 600 }}>SAME</span>
+          <div style={{ color: eduTheme.text.secondary, fontSize: 18, marginTop: 10 }}>
+            Pitch stays the <span style={{ color: eduTheme.accent.primary, fontWeight: 600 }}>SAME</span>
           </div>
         </div>
       </div>
@@ -205,40 +211,43 @@ export const PitchAmplitude: React.FC = () => {
         <div
           style={{
             padding: "20px 30px",
-            backgroundColor: "#3b82f622",
-            border: "2px solid #3b82f6",
+            backgroundColor: eduTheme.card.background,
+            border: `2px solid ${eduTheme.accent.primary}`,
+            boxShadow: eduTheme.card.shadow,
             borderRadius: 12,
           }}
         >
-          <div style={{ color: "#3b82f6", fontSize: 20, fontWeight: 600 }}>PITCH</div>
-          <div style={{ color: "#ffffff", fontSize: 24 }}>= Frequency</div>
-          <div style={{ color: "#94a3b8", fontSize: 18 }}>Width of cycles</div>
+          <div style={{ color: eduTheme.accent.primary, fontSize: 20, fontWeight: 600 }}>PITCH</div>
+          <div style={{ color: eduTheme.text.primary, fontSize: 24 }}>= Frequency</div>
+          <div style={{ color: eduTheme.text.secondary, fontSize: 18 }}>Width of cycles</div>
         </div>
 
         <div
           style={{
             padding: "20px 30px",
-            backgroundColor: "#22c55e22",
-            border: "2px solid #22c55e",
+            backgroundColor: eduTheme.card.background,
+            border: "2px solid #16a34a",
+            boxShadow: eduTheme.card.shadow,
             borderRadius: 12,
           }}
         >
-          <div style={{ color: "#22c55e", fontSize: 20, fontWeight: 600 }}>AMPLITUDE</div>
-          <div style={{ color: "#ffffff", fontSize: 24 }}>= Loudness</div>
-          <div style={{ color: "#94a3b8", fontSize: 18 }}>Height of cycles</div>
+          <div style={{ color: "#16a34a", fontSize: 20, fontWeight: 600 }}>AMPLITUDE</div>
+          <div style={{ color: eduTheme.text.primary, fontSize: 24 }}>= Loudness</div>
+          <div style={{ color: eduTheme.text.secondary, fontSize: 18 }}>Height of cycles</div>
         </div>
 
         <div
           style={{
             padding: "20px 30px",
-            backgroundColor: "#f59e0b22",
+            backgroundColor: eduTheme.card.background,
             border: "2px solid #f59e0b",
+            boxShadow: eduTheme.card.shadow,
             borderRadius: 12,
           }}
         >
           <div style={{ color: "#f59e0b", fontSize: 20, fontWeight: 600 }}>KEY POINT</div>
-          <div style={{ color: "#ffffff", fontSize: 24 }}>Independent!</div>
-          <div style={{ color: "#94a3b8", fontSize: 18 }}>Change one, not the other</div>
+          <div style={{ color: eduTheme.text.primary, fontSize: 24 }}>Independent!</div>
+          <div style={{ color: eduTheme.text.secondary, fontSize: 18 }}>Change one, not the other</div>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { eduTheme } from "../shared/EducationalBackground";
 
 export const WaveformBasics: React.FC = () => {
   const frame = useCurrentFrame();
@@ -57,7 +58,7 @@ export const WaveformBasics: React.FC = () => {
         style={{
           fontSize: 56,
           fontWeight: 700,
-          color: "#ffffff",
+          color: eduTheme.text.primary,
           marginBottom: 40,
           opacity: entryProgress,
         }}
@@ -81,7 +82,7 @@ export const WaveformBasics: React.FC = () => {
             left: 0,
             width: "100%",
             height: 2,
-            backgroundColor: "#334155",
+            backgroundColor: eduTheme.card.border,
           }}
         />
 
@@ -90,7 +91,7 @@ export const WaveformBasics: React.FC = () => {
           <path
             d={generateWavePath()}
             fill="none"
-            stroke="#3b82f6"
+            stroke={eduTheme.accent.primary}
             strokeWidth={4}
             strokeLinecap="round"
           />
@@ -223,7 +224,9 @@ export const WaveformBasics: React.FC = () => {
         style={{
           marginTop: 40,
           padding: "20px 40px",
-          backgroundColor: "#1e293b",
+          backgroundColor: eduTheme.card.background,
+          border: `2px solid ${eduTheme.card.border}`,
+          boxShadow: eduTheme.card.shadow,
           borderRadius: 12,
           opacity: interpolate(frame, [100, 120], [0, 1], {
             extrapolateLeft: "clamp",
@@ -231,7 +234,7 @@ export const WaveformBasics: React.FC = () => {
           }),
         }}
       >
-        <span style={{ color: "#94a3b8", fontSize: 28 }}>
+        <span style={{ color: eduTheme.text.secondary, fontSize: 28 }}>
           Frequency (f) = 1 / Period (T)
         </span>
       </div>
