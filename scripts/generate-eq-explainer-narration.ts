@@ -104,12 +104,12 @@ async function generateNarration() {
     try {
       const audioStream = await client.textToSpeech.convert(voiceId, {
         text: segment.text,
-        model_id: "eleven_multilingual_v2",
-        voice_settings: {
+        modelId: "eleven_multilingual_v2",
+        voiceSettings: {
           stability: 0.65, // Slightly higher for academic clarity
-          similarity_boost: 0.75,
+          similarityBoost: 0.75,
           style: 0.25, // Subtle expressiveness for academic tone
-          use_speaker_boost: true,
+          useSpeakerBoost: true,
         },
       });
 
