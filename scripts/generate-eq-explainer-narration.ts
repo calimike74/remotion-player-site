@@ -110,6 +110,7 @@ async function generateNarration() {
           similarityBoost: 0.75,
           style: 0.25, // Subtle expressiveness for academic tone
           useSpeakerBoost: true,
+          speed: 0.9, // Slower pacing for educational clarity (student feedback)
         },
       });
 
