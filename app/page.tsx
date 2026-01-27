@@ -5,13 +5,8 @@ import { useState, useMemo } from "react";
 import { CompressionExplainer } from "../compositions/CompressionExplainer";
 import { WaveformExplainer } from "../compositions/WaveformExplainer";
 import { WaveformExamTips } from "../compositions/WaveformExamTips";
-import { ImageDemo } from "../compositions/ImageDemo";
-import { ImageDemo3D } from "../compositions/ImageDemo3D";
-import { LogoReveal } from "../compositions/LogoReveal";
-import { DemoShowcase } from "../compositions/DemoShowcase";
-import { SoundFundamentals } from "../compositions/SoundFundamentals";
 import { EQExplainer } from "../compositions/EQExplainer";
-// Dev tools (StyleShowcase, IconPreview, WaveformExplainerV2) hidden from production
+// Dev tools (StyleShowcase, IconPreview, WaveformExplainerV2, ImageDemo, ImageDemo3D, LogoReveal, DemoShowcase, SoundFundamentals) hidden from production - not committed to git
 // PersonalizedReview is now accessed via /review?token=xxx - not shown on main page
 
 // Topic metadata with official Pearson Edexcel titles
@@ -19,7 +14,6 @@ const topicGroups: Record<string, { title: string; order: number }> = {
   "1.9": { title: "1.9 Dynamic Processing", order: 1 },
   "1.11": { title: "1.11 Equalisation", order: 2 },
   "2.5": { title: "2.5 Numeracy", order: 3 },
-  "dev": { title: "Dev Tools & Demos", order: 99 },
 };
 
 const videos = [
@@ -59,52 +53,7 @@ const videos = [
     durationInFrames: 3150,
     description: "Avoid common exam mistakes with worked examples for calculations, pitch vs amplitude, and axis labels.",
   },
-  {
-    id: "soundfundamentals",
-    title: "Sound Fundamentals",
-    subtitle: "Core Audio Concepts",
-    topic: "2.5",
-    component: SoundFundamentals,
-    durationInFrames: 2700,
-    description: "Essential concepts: waveform shapes (sine, square, saw, triangle), digital clipping, the decibel scale, and compression/rarefaction waves.",
-  },
-  {
-    id: "imagedemo",
-    title: "Image Demo",
-    subtitle: "Using Images in Remotion",
-    topic: "dev",
-    component: ImageDemo,
-    durationInFrames: 600,
-    description: "Demonstration of image techniques: Ken Burns effect, zoom, pan, callouts, and split comparisons using your assets.",
-  },
-  {
-    id: "imagedemo3d",
-    title: "3D Image Showcase",
-    subtitle: "Three.js + Remotion",
-    topic: "dev",
-    component: ImageDemo3D,
-    durationInFrames: 800,
-    description: "Full 3D scenes with floating cards, rotating carousel, parallax depth, and gallery flythrough using Three.js.",
-  },
-  {
-    id: "logoreveal",
-    title: "Logo Reveal",
-    subtitle: "4 Animation Styles",
-    topic: "dev",
-    component: LogoReveal,
-    durationInFrames: 480,
-    description: "Four different logo reveal animations: 3D flip, particle assembly, glitch effect, and scale with glow.",
-  },
-  {
-    id: "demoshowcase",
-    title: "Demo Showcase",
-    subtitle: "YouTube-Ready Demo",
-    topic: "dev",
-    component: DemoShowcase,
-    durationInFrames: 2000,
-    description: "Complete 47-second demo video with intro, logo montage, image techniques, 3D carousel, parallax, and outro. Ready for ElevenLabs narration.",
-  },
-];
+  ];
 
 export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState(videos[0]);
