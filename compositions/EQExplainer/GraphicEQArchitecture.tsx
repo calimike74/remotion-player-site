@@ -496,24 +496,45 @@ const EQCurveDisplay: React.FC<{
   const graphWidth = width - padding.left - padding.right;
   const graphHeight = height - padding.top - padding.bottom;
 
-  // Generate curve path from gains
+  // Generate curve path from gains - interpolates exactly through slider values
   const generateCurvePath = () => {
     const points: string[] = [];
     const sampleCount = 200;
 
+    // Helper: interpolate gain at any frequency using log-frequency weighted blend
+    const getGainAtFreq = (freq: number): number => {
+      // Clamp to frequency range
+      if (freq <= bands[0]) return gains[0] || 0;
+      if (freq >= bands[bands.length - 1]) return gains[bands.length - 1] || 0;
+
+      // Find the two bands this frequency falls between
+      let lowerIdx = 0;
+      for (let i = 0; i < bands.length - 1; i++) {
+        if (freq >= bands[i] && freq <= bands[i + 1]) {
+          lowerIdx = i;
+          break;
+        }
+      }
+
+      const lowerFreq = bands[lowerIdx];
+      const upperFreq = bands[lowerIdx + 1];
+      const lowerGain = gains[lowerIdx] || 0;
+      const upperGain = gains[lowerIdx + 1] || 0;
+
+      // Interpolate in log-frequency space for smooth curve
+      const logLower = Math.log10(lowerFreq);
+      const logUpper = Math.log10(upperFreq);
+      const logFreq = Math.log10(freq);
+      const t = (logFreq - logLower) / (logUpper - logLower);
+
+      // Use smooth cubic interpolation (ease in-out)
+      const smoothT = t * t * (3 - 2 * t);
+      return lowerGain + (upperGain - lowerGain) * smoothT;
+    };
+
     for (let i = 0; i <= sampleCount; i++) {
       const freq = 20 * Math.pow(1000, i / sampleCount);
-      let totalGain = 0;
-
-      // Sum contribution from each band
-      bands.forEach((bandFreq, j) => {
-        const gain = gains[j] || 0;
-        // Simple bell curve approximation for each band
-        const octaveDistance = Math.abs(Math.log2(freq / bandFreq));
-        const q = 1.4; // Typical graphic EQ Q
-        const contribution = gain * Math.exp(-Math.pow(octaveDistance * q, 2));
-        totalGain += contribution;
-      });
+      const totalGain = getGainAtFreq(freq);
 
       const x = padding.left + freqToX(freq, graphWidth);
       const y = padding.top + graphHeight / 2 - (totalGain / 12) * (graphHeight / 2);
