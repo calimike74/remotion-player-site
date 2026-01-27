@@ -32,17 +32,17 @@ export const EQExplainer: React.FC = () => {
   );
 
   // Section timing (in frames at 30fps)
-  // Extended to fit audio durations with ~1s buffer each
+  // Extended for 0.9 speed narration (~11% longer audio)
   const sections = {
-    title: { from: 0, duration: 120 },             // 0-4s (audio: 3.4s)
-    problem: { from: 120, duration: 330 },         // 4-15s (audio: 9.9s)
-    graphicArch: { from: 450, duration: 510 },     // 15-32s (audio: 16.1s)
-    freqBands: { from: 960, duration: 570 },       // 32-51s (audio: 18.4s)
-    parametricArch: { from: 1530, duration: 600 }, // 51-71s (audio: 19.4s)
-    qFactor: { from: 2130, duration: 540 },        // 71-89s (audio: 17.6s)
-    headToHead: { from: 2670, duration: 600 },     // 89-109s (audio: 19.0s)
-    routing: { from: 3270, duration: 480 },        // 109-125s (audio: 15.2s)
-    examSummary: { from: 3750, duration: 540 },    // 125-143s (audio: 17.0s)
+    title: { from: 0, duration: 135 },             // 0-4.5s
+    problem: { from: 135, duration: 370 },         // 4.5-16.8s
+    graphicArch: { from: 505, duration: 570 },     // 16.8-35.8s
+    freqBands: { from: 1075, duration: 640 },      // 35.8-57.2s
+    parametricArch: { from: 1715, duration: 670 }, // 57.2-79.5s
+    qFactor: { from: 2385, duration: 605 },        // 79.5-99.7s
+    headToHead: { from: 2990, duration: 670 },     // 99.7-122s
+    routing: { from: 3660, duration: 540 },        // 122-140s
+    examSummary: { from: 4200, duration: 605 },    // 140-160s
   };
 
   return (
@@ -54,32 +54,32 @@ export const EQExplainer: React.FC = () => {
       {/* Dark professional background for EQ content */}
       <EQBackground />
 
-      {/* ElevenLabs narration - timed to match extended sections */}
-      <Sequence from={0} durationInFrames={120}>
+      {/* ElevenLabs narration - timed to match extended sections (0.9 speed) */}
+      <Sequence from={0} durationInFrames={135}>
         <Audio src={staticFile("audio/eq-explainer/eq_01_title.mp3")} />
       </Sequence>
-      <Sequence from={120} durationInFrames={330}>
+      <Sequence from={135} durationInFrames={370}>
         <Audio src={staticFile("audio/eq-explainer/eq_02_problem.mp3")} />
       </Sequence>
-      <Sequence from={450} durationInFrames={510}>
+      <Sequence from={505} durationInFrames={570}>
         <Audio src={staticFile("audio/eq-explainer/eq_03_graphic.mp3")} />
       </Sequence>
-      <Sequence from={960} durationInFrames={570}>
+      <Sequence from={1075} durationInFrames={640}>
         <Audio src={staticFile("audio/eq-explainer/eq_04_bands.mp3")} />
       </Sequence>
-      <Sequence from={1530} durationInFrames={600}>
+      <Sequence from={1715} durationInFrames={670}>
         <Audio src={staticFile("audio/eq-explainer/eq_05_parametric.mp3")} />
       </Sequence>
-      <Sequence from={2130} durationInFrames={540}>
+      <Sequence from={2385} durationInFrames={605}>
         <Audio src={staticFile("audio/eq-explainer/eq_06_qfactor.mp3")} />
       </Sequence>
-      <Sequence from={2670} durationInFrames={600}>
+      <Sequence from={2990} durationInFrames={670}>
         <Audio src={staticFile("audio/eq-explainer/eq_07_headtohead.mp3")} />
       </Sequence>
-      <Sequence from={3270} durationInFrames={480}>
+      <Sequence from={3660} durationInFrames={540}>
         <Audio src={staticFile("audio/eq-explainer/eq_08_routing.mp3")} />
       </Sequence>
-      <Sequence from={3750} durationInFrames={540}>
+      <Sequence from={4200} durationInFrames={605}>
         <Audio src={staticFile("audio/eq-explainer/eq_09_summary.mp3")} />
       </Sequence>
 

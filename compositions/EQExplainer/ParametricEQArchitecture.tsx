@@ -39,8 +39,8 @@ export const ParametricEQArchitecture: React.FC = () => {
     extrapolateRight: "clamp",
   });
 
-  // Exit animation (section duration: 600 frames)
-  const exitOpacity = interpolate(frame, [560, 600], [1, 0], {
+  // Exit animation (section duration: 670 frames)
+  const exitOpacity = interpolate(frame, [630, 670], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });

@@ -38,8 +38,8 @@ export const ProblemStatement: React.FC = () => {
     config: { damping: 15, stiffness: 80 },
   });
 
-  // Exit animation (section duration: 330 frames)
-  const exitOpacity = interpolate(frame, [300, 330], [1, 0], {
+  // Exit animation (section duration: 370 frames)
+  const exitOpacity = interpolate(frame, [335, 370], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });

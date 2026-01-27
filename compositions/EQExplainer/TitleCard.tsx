@@ -36,8 +36,8 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, topic }) 
     config: { damping: 20, stiffness: 60 },
   });
 
-  // Exit animation
-  const exitOpacity = interpolate(frame, [90, 120], [1, 0], {
+  // Exit animation (section duration: 135 frames)
+  const exitOpacity = interpolate(frame, [100, 135], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });

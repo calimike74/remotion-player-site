@@ -30,8 +30,8 @@ export const RoutingComparison: React.FC = () => {
     config: { damping: 15, stiffness: 50 },
   });
 
-  // Exit animation (section duration: 480 frames)
-  const exitOpacity = interpolate(frame, [440, 480], [1, 0], {
+  // Exit animation (section duration: 540 frames)
+  const exitOpacity = interpolate(frame, [500, 540], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });

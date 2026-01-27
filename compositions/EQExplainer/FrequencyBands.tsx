@@ -36,8 +36,8 @@ export const FrequencyBands: React.FC = () => {
     config: { damping: 15, stiffness: 80 },
   });
 
-  // Exit animation (section duration: 570 frames)
-  const exitOpacity = interpolate(frame, [530, 570], [1, 0], {
+  // Exit animation (section duration: 640 frames)
+  const exitOpacity = interpolate(frame, [600, 640], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -344,7 +344,7 @@ const BandRow: React.FC<{
 
       {/* Row label */}
       <text
-        x={padding - 20}
+        x={padding - 30}
         y={y + 30}
         textAnchor="end"
         fill={color}
@@ -354,7 +354,7 @@ const BandRow: React.FC<{
         {label}
       </text>
       <text
-        x={padding - 20}
+        x={padding - 30}
         y={y + 50}
         textAnchor="end"
         fill={eqTheme.text.muted}

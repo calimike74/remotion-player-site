@@ -35,8 +35,8 @@ export const GraphicEQArchitecture: React.FC = () => {
     config: { damping: 15, stiffness: 40 },
   });
 
-  // Exit animation (section duration: 510 frames)
-  const exitOpacity = interpolate(frame, [470, 510], [1, 0], {
+  // Exit animation (section duration: 570 frames)
+  const exitOpacity = interpolate(frame, [530, 570], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -491,8 +491,8 @@ const EQCurveDisplay: React.FC<{
   progress: number;
 }> = ({ bands, gains, progress }) => {
   const width = 800;
-  const height = 200;
-  const padding = { left: 50, right: 20, top: 20, bottom: 40 };
+  const height = 280;
+  const padding = { left: 50, right: 20, top: 30, bottom: 40 };
   const graphWidth = width - padding.left - padding.right;
   const graphHeight = height - padding.top - padding.bottom;
 

@@ -35,7 +35,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="EQExplainer"
         component={EQExplainer}
-        durationInFrames={4290}
+        durationInFrames={4805}
         fps={30}
         width={1920}
         height={1080}

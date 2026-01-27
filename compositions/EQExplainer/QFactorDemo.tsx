@@ -32,8 +32,8 @@ export const QFactorDemo: React.FC = () => {
 
   const currentQ = interpolate(qCycle, [0, 0.33, 0.66, 1], [0.7, 2, 4, 10]);
 
-  // Exit animation (section duration: 540 frames)
-  const exitOpacity = interpolate(frame, [500, 540], [1, 0], {
+  // Exit animation (section duration: 605 frames)
+  const exitOpacity = interpolate(frame, [565, 605], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
