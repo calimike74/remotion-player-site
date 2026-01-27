@@ -42,9 +42,9 @@ export const FrequencyBands: React.FC = () => {
     extrapolateRight: "clamp",
   });
 
-  const graphWidth = 1600;
+  const graphWidth = 1400;
   const rowHeight = 80;
-  const padding = 100;
+  const padding = 180;
 
   return (
     <div
@@ -344,7 +344,7 @@ const BandRow: React.FC<{
 
       {/* Row label */}
       <text
-        x={padding - 30}
+        x={padding - 20}
         y={y + 30}
         textAnchor="end"
         fill={color}
@@ -354,7 +354,7 @@ const BandRow: React.FC<{
         {label}
       </text>
       <text
-        x={padding - 30}
+        x={padding - 20}
         y={y + 50}
         textAnchor="end"
         fill={eqTheme.text.muted}

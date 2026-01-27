@@ -32,7 +32,7 @@ const videos = [
     subtitle: "Graphic vs Parametric EQ",
     topic: "1.11",
     component: EQExplainer,
-    durationInFrames: 4290,
+    durationInFrames: 4805,
     description: "Compare graphic and parametric EQ: fixed bands vs flexible controls, Q factor, routing, and when to use each type.",
   },
   {
