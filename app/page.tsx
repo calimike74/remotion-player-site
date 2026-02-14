@@ -27,7 +27,7 @@ const videos = [
     subtitle: "Waveforms, ADSR & Filters",
     topic: "1.3",
     component: SynthesisRevision,
-    durationInFrames: 3300,
+    durationInFrames: 3240,
     description: "Visual guide to synthesis: basic waveforms and their harmonic content, ADSR envelopes, and low-pass filter sweeps with resonance.",
   },
   {
