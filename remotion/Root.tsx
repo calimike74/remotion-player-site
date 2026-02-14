@@ -1,17 +1,28 @@
 import { Composition } from "remotion";
-import { CompressionExplainer } from "../compositions/CompressionExplainer";
+import { DynamicProcessingRevision } from "../compositions/DynamicProcessingRevision";
+import { SynthesisRevision } from "../compositions/SynthesisRevision";
 import { WaveformExplainer } from "../compositions/WaveformExplainer";
 import { WaveformExamTips } from "../compositions/WaveformExamTips";
 import { EQExplainer } from "../compositions/EQExplainer";
+import { ReverbVisualizer } from "../compositions/ReverbVisualizer";
+import { StartupPitch } from "../compositions/StartupPitch";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
       {/* Educational videos */}
       <Composition
-        id="CompressionExplainer"
-        component={CompressionExplainer}
-        durationInFrames={1500}
+        id="SynthesisRevision"
+        component={SynthesisRevision}
+        durationInFrames={3300}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="DynamicProcessingRevision"
+        component={DynamicProcessingRevision}
+        durationInFrames={2700}
         fps={30}
         width={1920}
         height={1080}
@@ -36,6 +47,22 @@ export const RemotionRoot: React.FC = () => {
         id="EQExplainer"
         component={EQExplainer}
         durationInFrames={4805}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="ReverbVisualizer"
+        component={ReverbVisualizer}
+        durationInFrames={1800}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="StartupPitch"
+        component={StartupPitch}
+        durationInFrames={1260}
         fps={30}
         width={1920}
         height={1080}

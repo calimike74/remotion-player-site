@@ -2,29 +2,51 @@
 
 import { Player } from "@remotion/player";
 import { useState, useMemo } from "react";
-import { CompressionExplainer } from "../compositions/CompressionExplainer";
+import { DynamicProcessingRevision } from "../compositions/DynamicProcessingRevision";
+import { SynthesisRevision } from "../compositions/SynthesisRevision";
 import { WaveformExplainer } from "../compositions/WaveformExplainer";
 import { WaveformExamTips } from "../compositions/WaveformExamTips";
 import { EQExplainer } from "../compositions/EQExplainer";
+import { ReverbVisualizer } from "../compositions/ReverbVisualizer";
 // Dev tools (StyleShowcase, IconPreview, WaveformExplainerV2, ImageDemo, ImageDemo3D, LogoReveal, DemoShowcase, SoundFundamentals) hidden from production - not committed to git
 // PersonalizedReview is now accessed via /review?token=xxx - not shown on main page
 
 // Topic metadata with official Pearson Edexcel titles
 const topicGroups: Record<string, { title: string; order: number }> = {
-  "1.9": { title: "1.9 Dynamic Processing", order: 1 },
-  "1.11": { title: "1.11 Equalisation", order: 2 },
-  "2.5": { title: "2.5 Numeracy", order: 3 },
+  "1.3": { title: "1.3 Synthesis", order: 1 },
+  "1.7": { title: "1.7 Reverb & Room Acoustics", order: 2 },
+  "1.9": { title: "1.9 Dynamic Processing", order: 3 },
+  "1.11": { title: "1.11 Equalisation", order: 4 },
+  "2.5": { title: "2.5 Numeracy", order: 5 },
 };
 
 const videos = [
   {
-    id: "compression",
+    id: "synthesis-revision",
+    title: "Synthesis Fundamentals",
+    subtitle: "Waveforms, ADSR & Filters",
+    topic: "1.3",
+    component: SynthesisRevision,
+    durationInFrames: 3300,
+    description: "Visual guide to synthesis: basic waveforms and their harmonic content, ADSR envelopes, and low-pass filter sweeps with resonance.",
+  },
+  {
+    id: "reverb",
+    title: "Reverb & Acoustics",
+    subtitle: "Neon Cyber Edition",
+    topic: "1.7",
+    component: ReverbVisualizer,
+    durationInFrames: 1800,
+    description: "Explore reverb and room acoustics with stunning neon visuals. Covers RT60, impulse responses, frequency absorption, and reverb parameters.",
+  },
+  {
+    id: "dynamic-processing-revision",
     title: "Dynamic Processing",
-    subtitle: "Understanding Compression",
+    subtitle: "Compression Fundamentals",
     topic: "1.9",
-    component: CompressionExplainer,
-    durationInFrames: 1500,
-    description: "Learn how compressors work with animated waveforms and clear explanations of threshold, ratio, attack, and release.",
+    component: DynamicProcessingRevision,
+    durationInFrames: 2700,
+    description: "Animated compression guide: I/O graphs, threshold, ratio comparisons (4:1, 10:1, limiting), attack/release on drum transients, and exam tips.",
   },
   {
     id: "eqexplainer",
