@@ -7,7 +7,7 @@ import { SynthesisRevision } from "../compositions/SynthesisRevision";
 import { WaveformExplainer } from "../compositions/WaveformExplainer";
 import { WaveformExamTips } from "../compositions/WaveformExamTips";
 import { EQExplainer } from "../compositions/EQExplainer";
-import { ReverbVisualizer } from "../compositions/ReverbVisualizer";
+// ReverbVisualizer not yet committed to git - re-add when ready
 // Dev tools (StyleShowcase, IconPreview, WaveformExplainerV2, ImageDemo, ImageDemo3D, LogoReveal, DemoShowcase, SoundFundamentals) hidden from production - not committed to git
 // PersonalizedReview is now accessed via /review?token=xxx - not shown on main page
 
@@ -30,15 +30,7 @@ const videos = [
     durationInFrames: 3240,
     description: "Visual guide to synthesis: basic waveforms and their harmonic content, ADSR envelopes, and low-pass filter sweeps with resonance.",
   },
-  {
-    id: "reverb",
-    title: "Reverb & Acoustics",
-    subtitle: "Neon Cyber Edition",
-    topic: "1.7",
-    component: ReverbVisualizer,
-    durationInFrames: 1800,
-    description: "Explore reverb and room acoustics with stunning neon visuals. Covers RT60, impulse responses, frequency absorption, and reverb parameters.",
-  },
+  // ReverbVisualizer video entry - re-add when composition is committed to git
   {
     id: "dynamic-processing-revision",
     title: "Dynamic Processing",
