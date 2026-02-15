@@ -4,8 +4,7 @@ import { SynthesisRevision } from "../compositions/SynthesisRevision";
 import { WaveformExplainer } from "../compositions/WaveformExplainer";
 import { WaveformExamTips } from "../compositions/WaveformExamTips";
 import { EQExplainer } from "../compositions/EQExplainer";
-import { ReverbVisualizer } from "../compositions/ReverbVisualizer";
-import { StartupPitch } from "../compositions/StartupPitch";
+// ReverbVisualizer and StartupPitch not yet committed to git - re-add when ready
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -51,22 +50,7 @@ export const RemotionRoot: React.FC = () => {
         width={1920}
         height={1080}
       />
-      <Composition
-        id="ReverbVisualizer"
-        component={ReverbVisualizer}
-        durationInFrames={1800}
-        fps={30}
-        width={1920}
-        height={1080}
-      />
-      <Composition
-        id="StartupPitch"
-        component={StartupPitch}
-        durationInFrames={1260}
-        fps={30}
-        width={1920}
-        height={1080}
-      />
+      {/* ReverbVisualizer and StartupPitch - re-add when committed to git */}
     </>
   );
 };
